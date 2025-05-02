@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mydep11
+  namespace: dev
+  labels:
+    app: dm1
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: dm1
+  template:
+    metadata:
+      labels:
+        app: dm1
+    spec:
+      containers:
+        - name: cont1
+          image: shammu101/dm
+          ports:
+            - containerPort: 80
